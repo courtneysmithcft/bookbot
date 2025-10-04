@@ -1,6 +1,13 @@
 from stats import count_words, character_count, sort_dictionary
+import sys
+
+#Confirm userpassed the correct arguments to sys
+if len(sys.argv) < 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
 
 
+#import file path from user entry
 def get_book_text(filepath):
     with open(filepath) as file:
         return file.read()
@@ -9,7 +16,8 @@ def get_book_text(filepath):
 
 
 def main():
-    filepath = 'books/frankenstein.txt'
+    filepath = str(sys.argv[1])
+    
     book_text = get_book_text(filepath)
 
     print("============ BOOKBOT ============")
@@ -27,6 +35,5 @@ def main():
         print(f"{item['char']}: {item['num']}")
 
     print("============= END ===============")
-
 
 main()

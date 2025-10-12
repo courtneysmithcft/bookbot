@@ -15,16 +15,17 @@ def character_count(text):
     
     return char_count
 
+# Helper function for sorting
 def sort_on(item):
     return item["num"]
 
 
 #takes the dictionary of characters and their counts and returns a sorted list of dictionaries
 def sort_dictionary(char_count):
-    #convert dict to list
+    #convert dict to list of dictionaries
     sorted_list = []
     for char,count in char_count.items():
-        if char.isalpha():
+        if char.isalpha(): # keep only alphabetic characters
             sorted_list.append({"char": char, "num": count})
 
     # Sort list of dicts by "num" descending
